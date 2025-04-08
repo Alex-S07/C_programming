@@ -8,7 +8,7 @@ void bubbleSortReverse(char names[][MAX_LENGTH], int n) {
     char temp[MAX_LENGTH];
     for (int i = 0; i < n - 1; i++) {
         for (int j = 0; j < n - i - 1; j++) {
-            if (strcmp(names[j], names[j + 1]) < 0) {
+            if (strcmp(names[j], names[j + 1]) < 0) { // Reverse alphabetical order
                 strcpy(temp, names[j]);
                 strcpy(names[j], names[j + 1]);
                 strcpy(names[j + 1], temp);
@@ -23,14 +23,15 @@ int main() {
 
     printf("Enter the number of names: ");
     scanf("%d", &n);
-    getchar(); 
+    getchar(); // Consume the newline character left by scanf
 
     printf("Enter the names:\n");
     for (int i = 0; i < n; i++) {
         fgets(names[i], MAX_LENGTH, stdin);
-        names[i][strcspn(names[i], "\n")] = '\0'; 
+        names[i][strcspn(names[i], "\n")] = '\0'; // Remove the trailing newline
+    }
 
-    bubbleSortReverse(names, n);
+    bubbleSortReverse(names, n); // Call the sorting function after input is complete
 
     printf("\nNames in reverse alphabetical order:\n");
     for (int i = 0; i < n; i++) {
@@ -38,5 +39,4 @@ int main() {
     }
 
     return 0;
-}
 }
