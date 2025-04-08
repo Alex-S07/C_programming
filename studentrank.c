@@ -6,7 +6,7 @@ struct students{
 	int regno;
 	int rank;
 }s[100],t;
-void main{
+void main(){
 	int i,j,n;
 	printf("Enter the no of students");
 	scanf("%d",&n);
@@ -20,22 +20,21 @@ void main{
 			scanf("%d",&s[i].m[j]);
 			s[i].total+= s[i].m[j];
 		}
-		printf("enter the register number"
+		printf("enter the register number");
 		scanf("%d",&s[i].regno);
 	}
 	for(i=0;i<n;i++){
 		for(j=0;j<n;j++){
-			if(s[j].total<s.[j+1]total){
-				t=s[j]
-				s[j]=s[j+1]
-				s[j+i]=t
+			if(s[j].total<s[j+1].total){
+				t=s[j];
+				s[j]=s[j+1];
+				s[j+i]=t;
 			}
 		}
 	}
-	printf("The rank list);
-	printf("\t NAME \t REGISTRATION NO \t RANK \n")
+	printf("The rank list\n");
+	printf("NAME\tREGISTRATION NO\tRANK\n");
 	for(i=0;i<n;i++){
-		printf("%s\t%d\t%d\n",s[i].name,s[i].regno,s[i].rank);
+		printf("%s\t%d\t%d\n",s[i].name,s[i].regno,i);
 	}
-	return 0;
 }
