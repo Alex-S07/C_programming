@@ -1,12 +1,15 @@
 #include <stdio.h>
 
-#define SUM_ARRAY(arr, size, sum)  \
-    for (int i = 0; i < size; i++) { \
-        sum += arr[i];             \
-    }
+#define SUM_ARRAY(arr, size) ({      \
+    int sum = 0;                    \
+    for (int i = 0; i < size; i++) {\
+        sum += arr[i];              \
+    }                               \
+    sum;                            \
+})
 
 int main() {
-    int size, sum = 0;
+    int size;
 
     printf("Enter the number of elements: ");
     scanf("%d", &size);
@@ -17,7 +20,7 @@ int main() {
         scanf("%d", &arr[i]);
     }
 
-    SUM_ARRAY(arr, size, sum);
+    int sum = SUM_ARRAY(arr, size);
 
     printf("Sum of array elements: %d\n", sum);
 
